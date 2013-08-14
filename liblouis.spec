@@ -67,6 +67,7 @@ This package includes the development files for %{name}.
 %package -n python3-louis
 Summary:	Braille Translator and Back-Translator - Python3 Bindings
 Group:		System/Libraries
+Requires:	%{libname} = %{version}-%{release}
 
 %description -n python3-louis
 This package contains the python3 bindings for %{name}.
