@@ -1,0 +1,11 @@
+--- liblouis-2.5.3/python/louis/__init__.py.in	2013-06-21 12:13:06.000000000 +0000
++++ liblouis-2.5.3/python/louis/__init__.py.in	2013-08-14 15:41:37.008149629 +0000
+@@ -62,7 +62,7 @@
+ except NameError:
+     # Unix/Cygwin
+     _loader = cdll
+-liblouis = _loader["###LIBLOUIS_SONAME###"]
++liblouis = _loader["../liblouis/.libs/###LIBLOUIS_SONAME###"]
+ 
+ atexit.register(liblouis.lou_free)
+ 
