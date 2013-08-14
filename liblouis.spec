@@ -11,6 +11,8 @@ Group:		System/Libraries
 Url:		http://code.google.com/p/liblouis/
 Source0:	http://liblouis.googlecode.com/files/%{name}-%{version}.tar.gz
 Patch0:		allinonebuild.patch
+# for the man pages
+BuildRequires:	texinfo
 BuildRequires:	pkgconfig(python3)
 
 %description
