@@ -5,7 +5,7 @@
 Summary:	Braille Translator and Back-Translator
 Name:		liblouis
 Version:	2.5.3
-Release:	9
+Release:	10
 License:	LGPLv3+
 Group:		System/Libraries
 Url:		http://code.google.com/p/liblouis/
@@ -66,13 +66,14 @@ Requires:	%{libname} = %{version}-%{release}
 %description -n %{devname}
 This package includes the development files for %{name}.
 
-%package -n python3-louis
+%package -n python-louis
 Summary:	Braille Translator and Back-Translator - Python3 Bindings
 Group:		System/Libraries
 Requires:	%{libname} = %{version}-%{release}
+%rename		python3-louis
 
-%description -n python3-louis
-This package contains the python3 bindings for %{name}.
+%description -n python-louis
+This package contains the python bindings for %{name}.
 
 %prep
 %setup -q
@@ -116,7 +117,7 @@ popd
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/liblouis
 
-%files -n python3-louis
+%files -n python-louis
 %{python3_sitelib}/louis*.egg-info
 %{python3_sitelib}/louis
 
