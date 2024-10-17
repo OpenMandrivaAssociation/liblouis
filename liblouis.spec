@@ -8,7 +8,7 @@ Version:	2.5.3
 Release:	13
 License:	LGPLv3+
 Group:		System/Libraries
-Url:		http://code.google.com/p/liblouis/
+Url:		https://code.google.com/p/liblouis/
 Source0:	http://liblouis.googlecode.com/files/%{name}-%{version}.tar.gz
 Patch0:		allinonebuild.patch
 # for the man pages
