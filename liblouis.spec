@@ -112,7 +112,7 @@ popd
 %{_libdir}/liblouis.so.%{major}*
 
 %files -n %{devname}
-%doc AUTHORS ChangeLog COPYING.LIB NEWS README
+%doc AUTHORS ChangeLog NEWS README
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/liblouis
