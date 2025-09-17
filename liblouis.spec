@@ -106,7 +106,6 @@ popd
 %{_mandir}/man1/lou_*
 
 %files data
-%doc doc/liblouis.html doc/liblouis.txt
 %{_datadir}/liblouis/
 
 %files -n %{libname}
