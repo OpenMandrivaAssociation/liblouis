@@ -4,16 +4,18 @@
 
 Summary:	Braille Translator and Back-Translator
 Name:		liblouis
-Version:	2.5.3
-Release:	13
+Version:	3.35.0
+Release:	1
 License:	LGPLv3+
 Group:		System/Libraries
 Url:		https://code.google.com/p/liblouis/
-Source0:	http://liblouis.googlecode.com/files/%{name}-%{version}.tar.gz
-Patch0:		allinonebuild.patch
+Source0:	https://github.com/liblouis/liblouis/releases/download/v%{version}/liblouis-%{version}.tar.gz
+
 # for the man pages
 BuildRequires:	help2man
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(yaml-0.1)
+
 
 %description
 Liblouis is an open-source braille translator and back-translator.
@@ -76,26 +78,25 @@ Requires:	%{libname} = %{version}-%{release}
 This package contains the python bindings for %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
-autoreconf -fi
+%autosetup -p1
 
 %build
-%configure2_5x --disable-static
-%make
+%configure --disable-static --enable-ucs4
+%make_build
 
+# build python binding
 pushd python
-python3 setup.py build
+%py_build
 popd
 
 %install
-%makeinstall_std
-rm -f %{buildroot}%{_datadir}/doc/liblouis/liblouis.{html,txt}
-
+%make_install
+# doc is only auto-installed when makeinfo is present
+%make_install -C doc
+find %{buildroot} -type f -name "*.la" -delete -print
+# install python binding
 pushd python
-python3 setup.py install \
-	--skip-build --root="%{buildroot}" \
-	--prefix="%{_prefix}"
+%py_install
 popd
 
 %files -n louis-tools
@@ -105,14 +106,13 @@ popd
 %{_mandir}/man1/lou_*
 
 %files data
-%doc doc/liblouis.html doc/liblouis.txt
 %{_datadir}/liblouis/
 
 %files -n %{libname}
 %{_libdir}/liblouis.so.%{major}*
 
 %files -n %{devname}
-%doc AUTHORS ChangeLog COPYING.LIB NEWS README
+%doc AUTHORS ChangeLog NEWS README
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/liblouis
