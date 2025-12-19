@@ -124,6 +124,6 @@ popd
 %{_includedir}/liblouis
 
 %files -n python-louis
-%{python3_sitelib}/louis*.egg-info
+%{python3_sitelib}/louis*.dist-info
 %{python3_sitelib}/louis
 
