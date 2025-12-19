@@ -11,6 +11,8 @@ Group:		System/Libraries
 Url:		https://code.google.com/p/liblouis/
 Source0:	https://github.com/liblouis/liblouis/releases/download/v%{version}/liblouis-%{version}.tar.gz
 
+BuildRequires:  make
+BuildRequires:  libtool
 # for the man pages
 BuildRequires:	help2man
 BuildRequires:	pkgconfig(python3)
