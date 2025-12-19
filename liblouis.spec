@@ -13,6 +13,7 @@ Source0:	https://github.com/liblouis/liblouis/releases/download/v%{version}/libl
 
 BuildRequires:  make
 BuildRequires:  libtool
+BuildRequires:  m4
 # for the man pages
 BuildRequires:	help2man
 BuildRequires:	pkgconfig(python3)
