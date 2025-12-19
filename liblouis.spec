@@ -20,6 +20,7 @@ BuildRequires:	help2man
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(yaml-0.1)
 BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:  python%{pyver}dist(setuptools)
 
 
 %description
