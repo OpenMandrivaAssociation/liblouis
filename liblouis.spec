@@ -4,17 +4,23 @@
 
 Summary:	Braille Translator and Back-Translator
 Name:		liblouis
-Version:	3.35.0
-Release:	2
+Version:	3.36.0
+Release:	1
 License:	LGPLv3+
 Group:		System/Libraries
 Url:		https://code.google.com/p/liblouis/
 Source0:	https://github.com/liblouis/liblouis/releases/download/v%{version}/liblouis-%{version}.tar.gz
 
+BuildRequires:  automake
+BuildRequires:  make
+BuildRequires:  libtool
+BuildRequires:  m4
 # for the man pages
 BuildRequires:	help2man
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(yaml-0.1)
+BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:  python%{pyver}dist(setuptools)
 
 
 %description
@@ -118,6 +124,6 @@ popd
 %{_includedir}/liblouis
 
 %files -n python-louis
-%{python3_sitelib}/louis*.egg-info
+%{python3_sitelib}/louis*.dist-info
 %{python3_sitelib}/louis
 
