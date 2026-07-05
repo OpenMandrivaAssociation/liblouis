@@ -4,7 +4,7 @@
 
 Summary:	Braille Translator and Back-Translator
 Name:		liblouis
-Version:	3.36.0
+Version:	3.38.0
 Release:	1
 License:	LGPLv3+
 Group:		System/Libraries
